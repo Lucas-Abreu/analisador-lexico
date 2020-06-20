@@ -23,11 +23,11 @@
       </Button>
    </center>
    <right>
-      <TableView prefHeight="700.0" prefWidth="526.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabela" prefHeight="700.0" prefWidth="526.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="95.0" text="Codigo" />
-          <TableColumn prefWidth="121.2857666015625" text="Token" />
-            <TableColumn prefWidth="307.7142333984375" text="Descrição" />
+          <TableColumn fx:id="codigoTabela" prefWidth="95.0" text="Codigo" />
+          <TableColumn fx:id="valorTabela" prefWidth="121.2857666015625" text="Token" />
+            <TableColumn fx:id="descricaoTabela" prefWidth="307.7142333984375" text="Descrição" />
         </columns>
       </TableView>
    </right>
