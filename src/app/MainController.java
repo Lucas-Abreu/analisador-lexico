@@ -151,6 +151,7 @@ public class MainController implements Initializable {
 											Token token = new Token("" + inteiro, Tipo.INTEIRO); 
 											resultado.add(token);
 										}
+										atual = "";
 									}
 									catch (NumberFormatException e)
 									{
