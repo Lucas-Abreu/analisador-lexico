@@ -102,8 +102,7 @@ public class MainController implements Initializable {
 			{
 				if (comentario == false && literal == false)
 				{
-					if (caracteres[i].equalsIgnoreCase(" ") || checkCaracterEspecial(caracteres[i])
-							|| checkOperador(caracteres[i]) || caracteres[i].equalsIgnoreCase("$")|| caracteres[i].equalsIgnoreCase("\n"))
+					if (caracteres[i].equalsIgnoreCase(" ") || checkCaracterEspecial(caracteres[i]) || checkOperador(caracteres[i]) || caracteres[i].equalsIgnoreCase("$"))
 					{ 
 						
 						if (caracteres[i].equalsIgnoreCase("."))
@@ -158,7 +157,7 @@ public class MainController implements Initializable {
 									{
 										if (atual.length() <= 255 && !atual.equalsIgnoreCase(""))
 										{
-											Token token = new Token(atual.trim(), Tipo.IDENTIFICADOR); 
+											Token token = new Token(atual, Tipo.IDENTIFICADOR); 
 											resultado.add(token);
 											atual = "";
 										}
@@ -205,10 +204,6 @@ public class MainController implements Initializable {
 							atual += caracteres[i];
 						}
 					}
-				}
-				else if (literal && !comentario)
-				{
-					atual += caracteres[i];
 				}
 			}
 			
