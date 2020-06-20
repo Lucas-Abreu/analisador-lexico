@@ -76,7 +76,7 @@ public class MainController implements Initializable {
 				
 				if (caracteres[i].equalsIgnoreCase("*"))
 				{
-					comentario = true;
+					comentario = false;
 					i++;
 				}
 			}
@@ -100,7 +100,7 @@ public class MainController implements Initializable {
 			}
 			else
 			{
-				if (comentario == false || literal == false)
+				if (comentario == false && literal == false)
 				{
 					if (caracteres[i].equalsIgnoreCase(" ") || checkCaracterEspecial(caracteres[i]) || checkOperador(caracteres[i]) || caracteres[i].equalsIgnoreCase("$"))
 					{ 
