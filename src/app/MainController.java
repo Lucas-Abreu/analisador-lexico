@@ -32,7 +32,7 @@ public class MainController implements Initializable {
 	private TableColumn<Token, String> descricaoTabela;
 
 	@FXML
-	TextArea codigo;
+	private TextArea codigo;
 
 	private final Map<String, Tipo> PALAVRAS_RESERVADAS = new HashMap<String, Tipo>();
 	
