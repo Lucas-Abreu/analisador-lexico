@@ -82,19 +82,22 @@ public class MainController implements Initializable {
 			}
 			else if (caracteres[i].equalsIgnoreCase("\""))
 			{
-				if (literal == false)
+				if (!comentario)
 				{
-					literal = true;
-					continue;
-				}
-				else if (literal == true)
-				{
-					literal = false;
-					atual = "\"" + atual + "\"";
-					Token token = new Token(atual, Tipo.LITERAL); 
-					resultado.add(token);
-					atual = "";
-					continue;
+					if (literal == false)
+					{
+						literal = true;
+						continue;
+					}
+					else if (literal == true)
+					{
+						literal = false;
+						atual = "\"" + atual + "\"";
+						Token token = new Token(atual, Tipo.LITERAL); 
+						resultado.add(token);
+						atual = "";
+						continue;
+					}
 				}
 				
 			}
@@ -127,6 +130,59 @@ public class MainController implements Initializable {
 								
 							}
 						}
+						
+						if (caracteres[i].equalsIgnoreCase("."))
+						{
+							try
+							{ 
+								int j = i;
+								do
+								{
+									j ++;
+								}
+								while (caracteres[j].equalsIgnoreCase("1") || caracteres[j].equalsIgnoreCase("2") || caracteres[j].equalsIgnoreCase("3")
+										|| caracteres[j].equalsIgnoreCase("4") || caracteres[j].equalsIgnoreCase("5") || caracteres[j].equalsIgnoreCase("6")
+										|| caracteres[j].equalsIgnoreCase("7") || caracteres[j].equalsIgnoreCase("8") || caracteres[j].equalsIgnoreCase("9")
+										|| caracteres[j].equalsIgnoreCase("0"));
+								i = j - 1;
+								atual = "";
+							}
+							catch (NumberFormatException e)
+							{
+								
+							}
+						}
+						
+						
+						if (caracteres[i].equalsIgnoreCase("-"))
+						{
+							try
+							{ 
+								int j = i;
+								do
+								{
+									atual += caracteres[j];
+									j ++;
+								}
+								while (caracteres[j].equalsIgnoreCase("1") || caracteres[j].equalsIgnoreCase("2") || caracteres[j].equalsIgnoreCase("3")
+										|| caracteres[j].equalsIgnoreCase("4") || caracteres[j].equalsIgnoreCase("5") || caracteres[j].equalsIgnoreCase("6")
+										|| caracteres[j].equalsIgnoreCase("7") || caracteres[j].equalsIgnoreCase("8") || caracteres[j].equalsIgnoreCase("9")
+										|| caracteres[j].equalsIgnoreCase("0"));
+								i = j - 1;
+								int inteiro = Integer.parseInt(atual);
+								if (inteiro > -32767 && inteiro < 32767)
+								{
+									Token token = new Token("" + inteiro, Tipo.INTEIRO); 
+									resultado.add(token);
+								}
+								atual = "";
+							}
+							catch (NumberFormatException e)
+							{
+								
+							}
+						}
+
 
 						if (!caracteres[i].equalsIgnoreCase(""))
 						{
