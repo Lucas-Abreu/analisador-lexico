@@ -1,0 +1,17 @@
+PROGRAM programa1;
+WRITELN("Programa 1, Calculadora");
+var op := +;
+var x := 2;
+var y := 3;
+
+Procedure p
+Begin
+	if (op = "+") then (* adicao *) 
+		writeln(x + y)	
+	else if (op = "-") then (* subtracao *) 
+		writeln(x + y)	
+	else if (op = "*") then (* multiplicacao *) 
+		writeln(x * y)	
+	else if (op = "/") then (* divisao *) 
+		writeln(x / y)
+END; (*fim da procedure *)

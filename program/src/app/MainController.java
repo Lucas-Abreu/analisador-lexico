@@ -212,7 +212,7 @@ public class MainController implements Initializable {
 									}
 									catch (NumberFormatException e)
 									{
-										if (atual.length() <= 255 && !atual.equalsIgnoreCase(""))
+										if (atual.length() <= 255 && !check.equalsIgnoreCase(""))
 										{
 											Token token = new Token(atual.trim(), Tipo.IDENTIFICADOR); 
 											resultado.add(token);
