@@ -92,9 +92,12 @@ public class MainController implements Initializable {
 					else if (literal == true)
 					{
 						literal = false;
-						atual = "\"" + atual + "\"";
-						Token token = new Token(atual, Tipo.LITERAL); 
-						resultado.add(token);
+						if (atual.length() <= 255)
+						{
+							atual = "\"" + atual + "\"";
+							Token token = new Token(atual, Tipo.LITERAL); 
+							resultado.add(token);
+						}
 						atual = "";
 						continue;
 					}
@@ -212,7 +215,9 @@ public class MainController implements Initializable {
 									}
 									catch (NumberFormatException e)
 									{
-										if (atual.length() <= 255 && !check.equalsIgnoreCase(""))
+										if (atual.length() <= 30 && !check.equalsIgnoreCase("") && !atual.startsWith("1") && !atual.startsWith("2") &&
+												!atual.startsWith("3") && !atual.startsWith("4") && !atual.startsWith("5") && !atual.startsWith("6") &&
+												!atual.startsWith("7") && !atual.startsWith("8") && !atual.startsWith("9") && !atual.startsWith("0") )
 										{
 											Token token = new Token(atual.trim(), Tipo.IDENTIFICADOR); 
 											resultado.add(token);
@@ -382,7 +387,7 @@ public class MainController implements Initializable {
 		
 		OUTROS.put("<=", Tipo.MENOR_IGUAL); // 44
 
-		OUTROS.put("<>", Tipo.EQUIVALENTE); // 45
+		OUTROS.put("<>", Tipo.DIFERENTE); // 45
 		
 		CARACTERES_ESPECIAIS.put(",", Tipo.VIRGULA); // 46
 		

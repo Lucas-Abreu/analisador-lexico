@@ -46,7 +46,7 @@ public enum Tipo {
 	MAIOR_IGUAL(42,   "Operador relacional - Maior igual"),
 	MENOR(43,		  "Operador relacional - Menor"),
 	MENOR_IGUAL(44,   "Operador relacional - Menor igual"),
-	EQUIVALENTE(45,	  "Operador relacional - Equivalência"),
+	DIFERENTE(45,	  "Operador relacional - Diferente"),
 	VIRGULA(46, 	  "Caractere especial - Vírgula"),
 	PONTO_VIRGULA(47, "Caractere especial - Ponto e vírgula"),
 	LITERAL(48, 	  "Literal"),
